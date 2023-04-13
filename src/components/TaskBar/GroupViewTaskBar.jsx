@@ -39,13 +39,26 @@ function GroupViewTaskBar () {
 
     const [hideForm, setHideForm] = useState("none");
 
+    function toggleFormVisibility () {
+        if (hideForm === "none") {
+            setHideForm("")
+        } else {
+            setHideForm("none")
+        }
+    }
+
     function addGroup () {
-        setHideForm(!hideForm)
+        toggleFormVisibility()
+    }
+
+    function handleSubmit (event) {
+        event.preventDefault()
+        toggleFormVisibility()
     }
 
     return (
         <div>
-        <Form formClassName="new-group-form" hidden={hideForm}/>
+        <Form formClassName="new-group-form" hidden={hideForm} handleSubmit={handleSubmit}/>
         
         <div className="group-view-task-bar" style={setStyle()}>
             <Button onClick={toggleVisibility} className="task-bar-toggle-btn" icon={!visibility ? iconUp : iconDown}/>

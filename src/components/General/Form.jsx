@@ -3,7 +3,7 @@ import Input from "./Input"
 import Label from "./Label"
 import Button from "./Button";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCross, faPlusCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function Form (props) {
     
@@ -16,13 +16,20 @@ function Form (props) {
     }
 
     const addIcon = <FontAwesomeIcon icon={faPlusCircle} size="4x"/>;
+    const closeIcon = <FontAwesomeIcon icon={faXmark} size="3x"/>;
 
     wrapperStyle["display"] = props.hidden;
     
     return (
         <div style={wrapperStyle}>
+
             <form className={props.formClassName}>
 
+            <Button 
+                onClick={props.handleSubmit}
+                className="group-form-close-btn" 
+                icon={closeIcon} />
+                
                 <Label 
                 htmlFor="groupNameInput"
                 text="Group Name"
@@ -51,12 +58,13 @@ function Form (props) {
                 />
 
                 <Button 
-                onClick="" 
+                onClick={props.handleSubmit}
                 className="group-form-btn" 
                 icon={addIcon} />
 
             </form>
         </div>
+        
     )
 }
 

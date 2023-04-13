@@ -194,13 +194,13 @@ login {
       border: none;
       outline: none;
       border-radius:10px;
-      text-align: center;
+      text-align: right;
       bottom: 50%;
       left: 50vw;
       margin-left: -250px;
-      padding: 20px;
+      padding: 30px;
       display: table;
-      table-layout: fixed;
+      
     }
 
     /* stops default form focus behaviour */
@@ -221,6 +221,8 @@ login {
     transition: 0.5s;
     display: table-cell;
     text-align: center;
+    margin-bottom: 30px;
+    margin-top: 7px;
     }
 
     .form-input:focus {
@@ -233,16 +235,29 @@ login {
       }
 
       .group-form-btn {
-        display: table-row;
+        width:470px;
         text-align: center;
         border: none;
         outline: none;
+        display: table-cell;
+        text-align: center;
+        color: #49d49f46;
+      }
+
+      .group-form-close-btn {
+        color: rgba(230, 102, 63, 0.363);
+        border: none;
+        outline: none;
         background: none;
-        color: rgba(129, 171, 199, 0.253);
+        text-align: right;
+      }
+
+      .group-form-close-btn:hover {
+        color: rgba(230, 102, 63, 0.692);
       }
 
       .group-form-btn:hover {
-        color: #66a6c275;
+        color: #49d49f98;
       }
 
       #groupColourPicker{
