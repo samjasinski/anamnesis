@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Input from "./Input"
 import Label from "./Label"
 import Button from "./Button";
@@ -26,7 +26,7 @@ function Form (props) {
             <form className={props.formClassName}>
 
             <Button 
-                onClick={props.handleSubmit}
+                onClick={props.handleClose}
                 className="group-form-close-btn" 
                 icon={closeIcon} />
                 
@@ -40,7 +40,8 @@ function Form (props) {
                 id="groupNameInput"
                 type="text" 
                 placeholder="Your new group name goes here!"
-                className="form-input"   
+                className="form-input"
+                onChange={props.handleInputChange}     
                 />
 
                 <Label 
@@ -54,7 +55,8 @@ function Form (props) {
                 type="color" 
                 placeholder="Your new group name goes here!"
                 className="form-input"
-                value="#B0DAFF"   
+                value="#B0DAFF"
+                onChange={props.handleInputChange}   
                 />
 
                 <Button 

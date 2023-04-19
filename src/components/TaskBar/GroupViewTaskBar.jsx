@@ -5,6 +5,7 @@ import { faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Form from "../General/Form";
 import Group from "./Group";
+import { name } from "ejs";
 
 function GroupViewTaskBar () {
 
@@ -51,19 +52,68 @@ function GroupViewTaskBar () {
         toggleFormVisibility()
     }
 
+    const [groups, setGroups] = useState([]);
+
+    function createNewGroup() {
+        
+        const groupObj = {
+            name: groupName,
+            colour: groupColour
+        }
+
+        setGroups([...groups, groupObj])
+
+        console.log(groups)
+    }
+
+    function deleteGroup () {
+
+    }
+
     function handleSubmit (event) {
         event.preventDefault()
         toggleFormVisibility()
+        createNewGroup()
+    }
+
+    function handleClose (event) {
+        event.preventDefault();
+        toggleFormVisibility();
+    }
+
+    const [groupName, setGroupName] = useState("");
+    const [groupColour, setGroupColour] = useState("#000000");
+
+    function handleInputChange (event) {
+        if (event.target.id === "groupNameInput") {
+            setGroupName(event.target.value)
+        } else if (event.target.id === "groupColourPicker") {
+            setGroupColour(event.target.value)
+        }
     }
 
     return (
         <div>
-        <Form formClassName="new-group-form" hidden={hideForm} handleSubmit={handleSubmit}/>
+
+        <Form 
+        formClassName="new-group-form" 
+        hidden={hideForm} handleSubmit={handleSubmit} 
+        handleClose={handleClose} 
+        handleInputChange={handleInputChange}/>
         
-        <div className="group-view-task-bar" style={setStyle()}>
-            <Button onClick={toggleVisibility} className="task-bar-toggle-btn" icon={!visibility ? iconUp : iconDown}/>
-            <Button onClick={addGroup} className="group-add-button" icon={iconAdd}/>
-        </div>
+            <div className="group-view-task-bar" style={setStyle()}>
+
+                <Button 
+                onClick={toggleVisibility} 
+                className="task-bar-toggle-btn" 
+                icon={!visibility ? iconUp : iconDown}/>
+
+                <Button 
+                onClick={addGroup} 
+                className="group-add-button" 
+                icon={iconAdd}/>
+
+            </div>
         </div>
     )
 }

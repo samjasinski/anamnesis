@@ -235,12 +235,14 @@ login {
       }
 
       .group-form-btn {
-        width:470px;
+        
+        margin-right: 220px;
         text-align: center;
         border: none;
         outline: none;
         display: table-cell;
         text-align: center;
+        background: none;
         color: #49d49f46;
       }
 
