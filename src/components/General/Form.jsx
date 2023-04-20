@@ -40,7 +40,8 @@ function Form (props) {
                 id="groupNameInput"
                 type="text" 
                 placeholder="Your new group name goes here!"
-                className="form-input"   
+                className="form-input"
+                onChange={props.handleFormInputs}   
                 />
 
                 <Label 
@@ -54,7 +55,8 @@ function Form (props) {
                 type="color" 
                 placeholder="Your new group name goes here!"
                 className="form-input"
-                value="#B0DAFF"   
+                value="#B0DAFF"
+                onChange={props.handleFormInputs}      
                 />
 
                 <Button 

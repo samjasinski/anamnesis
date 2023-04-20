@@ -16,7 +16,6 @@ function GroupViewTaskBar () {
     const [visibility, setVisibility] = useState(null);
 
     function toggleVisibility () {
-        
         setVisibility(!visibility)
     }
 
@@ -36,7 +35,6 @@ function GroupViewTaskBar () {
         }
     }
 
-
     const [hideForm, setHideForm] = useState("none");
 
     function toggleFormVisibility () {
@@ -51,19 +49,48 @@ function GroupViewTaskBar () {
         toggleFormVisibility()
     }
 
+    const [groups, setGroups] = useState([]);
+
+    const [groupName, setGroupName] = useState("");
+
+    const [groupColour, setGroupColour] = useState("");
+
+    function handleFormInputs(event){
+        if (event.target.id === 'groupNameInput') {
+            setGroupName(event.target.value)
+        } else if (event.target.id === 'groupColourPicker') {
+            setGroupColour(event.target.value)
+        }
+    }
+
+    function createGroupObj () {
+        const newObj = {
+            name: groupName,
+            colour: groupColour
+        }
+
+        return newObj
+    }
+
     function handleSubmit (event) {
         event.preventDefault()
         toggleFormVisibility()
+        alert("Submitted")
+        setGroups(prevState => {
+            return [...prevState, createGroupObj()]
+        })
+        alert(groups)
     }
 
     function handleClose (event) {
         event.preventDefault()
         toggleFormVisibility()
+        alert("Closed")
     }
 
     return (
         <div>
-        <Form formClassName="new-group-form" hidden={hideForm} handleClose={handleClose} handleSubmit={handleSubmit}/>
+        <Form formClassName="new-group-form" hidden={hideForm} handleClose={handleClose} handleSubmit={handleSubmit} handleFormInputs={handleFormInputs}/>
         
         <div className="group-view-task-bar" style={setStyle()}>
             <Button onClick={toggleVisibility} className="task-bar-toggle-btn" icon={!visibility ? iconUp : iconDown}/>
