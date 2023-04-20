@@ -238,6 +238,7 @@ login {
         width:470px;
         text-align: center;
         border: none;
+        background: none;
         outline: none;
         display: table-cell;
         text-align: center;
