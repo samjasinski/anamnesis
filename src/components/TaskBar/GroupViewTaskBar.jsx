@@ -47,7 +47,7 @@ function GroupViewTaskBar () {
         }
     }
 
-    function addGroup () {
+    function handleAddGroupButton () {
         toggleFormVisibility()
     }
 
@@ -56,13 +56,19 @@ function GroupViewTaskBar () {
         toggleFormVisibility()
     }
 
+    function handleClose (event) {
+        event.preventDefault()
+        toggleFormVisibility()
+    }
+
     return (
         <div>
-        <Form formClassName="new-group-form" hidden={hideForm} handleSubmit={handleSubmit}/>
+        <Form formClassName="new-group-form" hidden={hideForm} handleClose={handleClose} handleSubmit={handleSubmit}/>
         
         <div className="group-view-task-bar" style={setStyle()}>
             <Button onClick={toggleVisibility} className="task-bar-toggle-btn" icon={!visibility ? iconUp : iconDown}/>
-            <Button onClick={addGroup} className="group-add-button" icon={iconAdd}/>
+            <Button onClick={handleAddGroupButton} className="group-add-button" icon={iconAdd}/>
+            
         </div>
         </div>
     )

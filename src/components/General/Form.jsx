@@ -26,7 +26,7 @@ function Form (props) {
             <form className={props.formClassName}>
 
             <Button 
-                onClick={props.handleSubmit}
+                onClick={props.handleClose}
                 className="group-form-close-btn" 
                 icon={closeIcon} />
                 
