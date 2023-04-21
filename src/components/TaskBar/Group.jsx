@@ -1,9 +1,16 @@
 import React from "react";
 
 function Group (props) {
-    return (
-        <div className="group">
 
+    const style = {
+        backgroundColor: props.colour
+    }
+
+    return (
+        <div className="group" style={style}>
+           <p className="group-text">
+           
+            </p>
         </div>
     )
 }

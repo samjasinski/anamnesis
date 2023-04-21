@@ -53,7 +53,7 @@ function GroupViewTaskBar () {
 
     const [groupName, setGroupName] = useState("");
 
-    const [groupColour, setGroupColour] = useState("");
+    const [groupColour, setGroupColour] = useState("rgba(129, 171, 199, 0.253)");
 
     function handleFormInputs(event){
         if (event.target.id === 'groupNameInput') {
@@ -95,7 +95,8 @@ function GroupViewTaskBar () {
         <div className="group-view-task-bar" style={setStyle()}>
             <Button onClick={toggleVisibility} className="task-bar-toggle-btn" icon={!visibility ? iconUp : iconDown}/>
             <Button onClick={handleAddGroupButton} className="group-add-button" icon={iconAdd}/>
-            
+            {groups.map(groupObj => 
+            <Group name={groupObj.name} colour={groupObj.colour}/>) }
         </div>
         </div>
     )

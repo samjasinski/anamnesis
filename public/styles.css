@@ -11,6 +11,7 @@ body {
     background: linear-gradient(to left top, #2d6a8544, #2f627780, #66a6c275, #67bbdf42, #1e80aa59), url("https://www.transparenttextures.com/patterns/circles.png");
     /* prevents the cloud from expanding the page to the right */
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
   }
 
 login {
@@ -43,6 +44,7 @@ login {
   padding-right: 30px;
   padding-bottom: 15px;
   word-break: break-all;
+  caret-color: transparent;
 }
 
 .thought-cloud::after, .thought-cloud::before {
@@ -177,13 +179,22 @@ login {
     }
 
     .group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-left: 10px;
       position: relative;
       height: 80px;
       width: 80px;
-      background-color: red;
       border-radius: 10px;
+      caret-color: transparent;
     }
+
+    .group-text {
+        flex: 0 0 70px;
+    }
+
+ 
 
     .new-group-form {
       position: fixed;
